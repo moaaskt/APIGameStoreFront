@@ -1,0 +1,44 @@
+.game-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+  
+  .game-form-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  .game-form-container form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .game-form-container form input[type='text'],
+  .game-form-container form input[type='number'] {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .game-form-container form button[type='submit'] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .game-form-container form button[type='submit']:hover {
+    background-color: #0056b3;
+  }
+  h1 {
+    font-family: 'Nome da Fonte', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(10, 3, 3);
+  }
