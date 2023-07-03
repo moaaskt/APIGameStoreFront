@@ -19,7 +19,6 @@ const GameForm = () => {
       const response = await fetch('http://localhost:4000/games');
       const data = await response.json();
       setGames(data.Dados);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching games:', error);
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import GameForm from './component/GameForm';
 import Home from './component/Home';
 
@@ -9,7 +9,6 @@ import Home from './component/Home';
 
 function App() {
   const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchGames();
@@ -20,7 +19,6 @@ function App() {
       const response = await fetch('http://localhost:4000/games');
       const data = await response.json();
       setGames(data.Dados);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching games:', error);
     }
@@ -36,25 +34,20 @@ function App() {
       console.error('Error fetching users:', error);
     }
   };
-  
+
   useEffect(() => {
     fetchUsers();
   }, []);
-  
-
-
 
   return (
 
-    
     <div>
 
-    <Routes>
-   <Route path='/GameForm' element={<GameForm/>}></Route>
-   <Route path='/Home' element={<Home/>}></Route>
-
-
-    </Routes>
+      <Routes>
+        <Route path='*' element={<Home />}></Route>
+        <Route path='/GameForm' element={<GameForm />}></Route>
+        <Route path='/Home' element={<Home />}></Route>
+      </Routes>
 
     </div>
   );
