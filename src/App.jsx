@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import GameForm from './component/GameForm';
 import Home from './component/Home';
+import Carrinho from './component/Carrinho';
+
 
 
 
@@ -9,6 +11,13 @@ import Home from './component/Home';
 
 function App() {
   const [games, setGames] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+
+  const adicionarAoCarrinho = (jogoComprado) => {
+    setCartItems((prevItems) => [...prevItems, jogoComprado]);
+    setCartTotal((prevTotal) => prevTotal + jogoComprado.preco);
+  };
 
   useEffect(() => {
     fetchGames();
@@ -47,6 +56,10 @@ function App() {
         <Route path='*' element={<Home />}></Route>
         <Route path='/GameForm' element={<GameForm />}></Route>
         <Route path='/Home' element={<Home />}></Route>
+        <Route
+          path="*"
+          element={<Home adicionarAoCarrinho={adicionarAoCarrinho} />}
+        />
       </Routes>
 
     </div>

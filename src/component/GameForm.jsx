@@ -50,7 +50,9 @@ const GameForm = () => {
   };
 
   return (
+    
     <div className="game-form-container">
+      
     <h1>Cadastro de Games</h1>
     <form onSubmit={handleFormSubmit}>
       <label>

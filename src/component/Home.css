@@ -47,3 +47,36 @@ h1 {
   text-align: center;
   color: rgb(218, 16, 16);
 }
+body{
+  background-color: rgb(223, 218, 218);
+}
+.search-button {
+  background-color: #4c8bf5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #1d62ff;
+}
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #4c8bf5;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1d62ff;
+}
+.search-container{
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
