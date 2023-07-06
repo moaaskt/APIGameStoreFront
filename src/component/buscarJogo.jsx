@@ -7,7 +7,7 @@ const GameForm = () => {
     descricao: '',
     preco: '',
     plataforma: '',
-    url: '',
+    url_jogo: '',
   });
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const GameForm = () => {
   }, []);
   const fetchGames = async () => {
     try {
-      const response = await fetch('http://localhost:4000/games');
+      const response = await fetch('http://localhost:3000/games');
       const data = await response.json();
       setGames(data.Dados);
     } catch (error) {
@@ -40,7 +40,7 @@ const GameForm = () => {
       descricao: '',
       preco: '',
       plataforma: '',
-      url: '',
+      url_jogo: '',
     });
   };
 

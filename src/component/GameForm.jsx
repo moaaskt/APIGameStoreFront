@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './GameForm.css';
 
+
 const GameForm = () => {
   const [gameData, setGameData] = useState({
     nome: '',
@@ -21,7 +22,7 @@ const GameForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:4000/cadastrarGames', {
+      const response = await fetch('http://localhost:3000/cadastrarGames', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
