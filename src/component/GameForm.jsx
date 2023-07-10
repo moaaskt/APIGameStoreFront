@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './GameForm.css';
 
 
+
+
 const GameForm = () => {
+  const navigate = useNavigate();
   const [gameData, setGameData] = useState({
     nome: '',
     descricao: '',
@@ -10,6 +14,10 @@ const GameForm = () => {
     plataforma: '',
     url_jogo: '', // Corrigido o nome do campo
   });
+
+  const handleGoToHome = () => {
+    navigate('/home'); // Use a função navigate para navegar para a página inicial
+  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -51,64 +59,68 @@ const GameForm = () => {
   };
 
   return (
-    
+
     <div className="game-form-container">
-      
-    <h1>Cadastro de Games</h1>
-    <form onSubmit={handleFormSubmit}>
-      <label>
-        Nome:
-        <input
-          type="text"
-          name="nome"
-          value={gameData.nome}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Descrição:
-        <input
-          type="text"
-          name="descricao"
-          value={gameData.descricao}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Preço:
-        <input
-          type="number"
-          name="preco"
-          value={gameData.preco}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        Plataforma:
-        <input
-          type="text"
-          name="plataforma"
-          value={gameData.plataforma}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <label>
-        URL do Jogo:
-        <input
-          type="text"
-          name="url_jogo" // Corrigido o nome do campo
-          value={gameData.url_jogo}
-          onChange={handleInputChange}
-        />
-      </label>
-      <br />
-      <button type="submit">Cadastrar Jogo</button>
-    </form>
-  </div>
+
+      <h1>Cadastro de Games</h1>
+      <form onSubmit={handleFormSubmit}>
+        <label>
+          Nome:
+          <input
+            type="text"
+            name="nome"
+            value={gameData.nome}
+            onChange={handleInputChange}
+          />
+        </label>
+        <br />
+        <label>
+          Descrição:
+          <input
+            type="text"
+            name="descricao"
+            value={gameData.descricao}
+            onChange={handleInputChange}
+          />
+        </label>
+        <br />
+        <label>
+          Preço:
+          <input
+            type="number"
+            name="preco"
+            value={gameData.preco}
+            onChange={handleInputChange}
+          />
+        </label>
+        <br />
+        <label>
+          Plataforma:
+          <input
+            type="text"
+            name="plataforma"
+            value={gameData.plataforma}
+            onChange={handleInputChange}
+          />
+        </label>
+        <br />
+        <label>
+          URL do Jogo:
+          <input
+            type="text"
+            name="url_jogo" // Corrigido o nome do campo
+            value={gameData.url_jogo}
+            onChange={handleInputChange}
+          />
+        </label>
+        <br />
+        <button type="submit">Cadastrar Jogo</button>
+        <button className="cadas-button" onClick={handleGoToHome}>
+        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+        </button>
+      </form>
+    </div>
+
   );
 };
 

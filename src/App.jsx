@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import GameForm from './component/GameForm';
 import Home from './component/Home';
-import Carrinho from './component/Carrinho';
 
 
 

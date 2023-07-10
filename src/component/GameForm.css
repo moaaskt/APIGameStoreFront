@@ -42,3 +42,17 @@
     text-align: center;
     color: rgb(10, 3, 3);
   }
+  .home-button {
+    background-color: #c70505;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .home-button:hover {
+    background-color: #eb0505c5;
+  }

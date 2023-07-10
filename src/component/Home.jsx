@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const Home = () => {
   const [games, setGames] = useState([]);
   const navigate = useNavigate();
@@ -79,15 +80,18 @@ const Home = () => {
       <div className="search-container">
         <input
           type="text"
-          placeholder="Buscar jogo..."
+          placeholder="Buscar..."
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
           className="search-input"
         />
-        <button className="search-button" onClick={handleFormSubmit}>
-          Procurar
-        </button>
+        <button className="search-button" onClick={handleFormSubmit}><i class="fa-solid fa-magnifying-glass"></i>
+         
+        </button> <Link to="/GameForm"><button className="cadas-button">Cadastrar Jogos</button></Link>
+        
       </div>
+     
+   
       <div className="product-grid">
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
@@ -103,6 +107,7 @@ const Home = () => {
         ) : (
           <p className="no-results">Nenhum jogo encontrado.</p>
         )}
+        
       </div>
     </div>
   );

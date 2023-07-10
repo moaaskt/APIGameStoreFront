@@ -69,6 +69,20 @@ body{
 .search-button:hover {
   background-color: #1d62ff;
 }
+.cadas-button {
+  background-color: #c70505;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cadas-button:hover {
+  background-color: #eb0505c5;
+}
 .search-input {
   padding: 10px;
   font-size: 16px;
