@@ -45,7 +45,7 @@ const CadastrarUser = () => {
   };
 
   return (
-    <div>
+    <div className='cadastra-user'>
       <h2>Cadastro de Usuário</h2>
       <form onSubmit={handleCadastro}>
         <div>

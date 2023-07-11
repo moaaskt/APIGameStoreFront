@@ -64,7 +64,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className='central'>
       <Routes>
         <Route path='*' element={<Home adicionarAoCarrinho={adicionarAoCarrinho} />} />
         <Route path='/GameForm' element={<GameForm />} />

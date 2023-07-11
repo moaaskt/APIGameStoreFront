@@ -14,7 +14,7 @@ const Carrinho = ({ cartItems, cartTotal, removerDoCarrinho }) => {
   };
 
   return (
-    <div>
+    <div className='carrinho-de-compra'>
       
       <h2>Carrinho de Compras</h2>
     

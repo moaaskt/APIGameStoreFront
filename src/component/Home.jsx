@@ -77,32 +77,22 @@ const Home = ({ adicionarAoCarrinho }) => {
 
   return (
     <div className="home-container">
+      <nav className="navbar">
       <h1>GameStore©</h1>
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Buscar..."
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-          className="search-input"
-        />
-        <button className="search-button" onClick={handleFormSubmit}>
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
         <Link to="/GameForm">
-          <button className="cadas-button">Cadastrar Jogos</button>
-        </Link>
-        <button className="search-button" onClick={handleGoToCarrinho}>
-          <i class="fa-solid fa-cart-shopping"></i>
-        </button>
-        <Link to="/Login">
-          <button className="cadas-button">Sign in</button>
-        </Link>
-        {/* <Link to="/CadastrarUser">
-          Sign up
-        </Link> */}
-       
-      </div>
+            <button className="cadas-button">Cadastrar Jogos</button>
+          </Link>
+        <div className='right'>
+          <input type='text' className="search-bar" placeholder='Pesquise algun jogo...' value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}/>
+          <button className="carrinho" onClick={handleGoToCarrinho}>
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <Link to="/Login">
+            <button className="cart">Login</button>
+          </Link>
+        </div>
+      </nav>
       <div className="product-grid">
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
@@ -112,7 +102,7 @@ const Home = ({ adicionarAoCarrinho }) => {
               <p>{game.descricao}</p>
               <p className="price">Preço: R${game.preco}</p>
               <p className="platform">Plataforma: {game.plataforma}</p>
-              <button onClick={() => comprarJogo(game.game_id)}>Comprar</button>
+              <button className='carrinho-compra' onClick={() => comprarJogo(game.game_id)}>Adicionar no carrinho</button>
             </div>
           ))
         ) : (
