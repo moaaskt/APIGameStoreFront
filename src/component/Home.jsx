@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Carrinho from './Carrinho';
 
-
-
-const Home = () => {
-  const [games, setGames] = useState([]);
+const Home = ({ adicionarAoCarrinho }) => {
   const navigate = useNavigate();
+  const [games, setGames] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [gameData, setGameData] = useState({
     nome: '',
@@ -50,20 +48,18 @@ const Home = () => {
       url_jogo: '',
     });
   };
+
   const comprarJogo = (gameId) => {
     const jogoComprado = games.find((game) => game.game_id === gameId);
-  
+
     if (jogoComprado) {
       console.log(`Jogo ${jogoComprado.nome} comprado!`);
       adicionarAoCarrinho(jogoComprado);
-      navigate('/Carrinho');
+      navigate('/carrinho');
     } else {
       console.log(`Jogo com ID ${gameId} não encontrado.`);
     }
   };
-  
-  
-  
 
   const filteredGames = games.filter((game) => {
     const searchTermLower = searchTerm.toLowerCase();
@@ -85,13 +81,13 @@ const Home = () => {
           onChange={(event) => setSearchTerm(event.target.value)}
           className="search-input"
         />
-        <button className="search-button" onClick={handleFormSubmit}><i class="fa-solid fa-magnifying-glass"></i>
-         
-        </button> <Link to="/GameForm"><button className="cadas-button">Cadastrar Jogos</button></Link>
-        
+        <button className="search-button" onClick={handleFormSubmit}>
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <Link to="/GameForm">
+          <button className="cadas-button">Cadastrar Jogos</button>
+        </Link>
       </div>
-     
-   
       <div className="product-grid">
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
@@ -102,12 +98,12 @@ const Home = () => {
               <p className="price">Preço: R${game.preco}</p>
               <p className="platform">Plataforma: {game.plataforma}</p>
               <button onClick={() => comprarJogo(game.game_id)}>Comprar</button>
+              <Link to="/carrinho">Carrinho</Link>
             </div>
           ))
         ) : (
           <p className="no-results">Nenhum jogo encontrado.</p>
         )}
-        
       </div>
     </div>
   );

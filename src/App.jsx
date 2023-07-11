@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 import GameForm from './component/GameForm';
 import Home from './component/Home';
-
-
-
-
-
+import Carrinho from './component/Carrinho';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -14,7 +10,19 @@ function App() {
   const [cartTotal, setCartTotal] = useState(0);
 
   const adicionarAoCarrinho = (jogoComprado) => {
-    setCartItems((prevItems) => [...prevItems, jogoComprado]);
+    setCartItems((prevItems) => {
+      const updatedItems = [...prevItems];
+      const existingItem = updatedItems.find((item) => item.jogo.game_id === jogoComprado.game_id);
+      if (existingItem) {
+        existingItem.quantidade += 1;
+      } else {
+        updatedItems.push({
+          jogo: jogoComprado,
+          quantidade: 1,
+        });
+      }
+      return updatedItems;
+    });
     setCartTotal((prevTotal) => prevTotal + jogoComprado.preco);
   };
 
@@ -31,6 +39,7 @@ function App() {
       console.error('Error fetching games:', error);
     }
   };
+
   const [users, setUsers] = useState([]);
 
   const fetchUsers = async () => {
@@ -48,19 +57,12 @@ function App() {
   }, []);
 
   return (
-
     <div>
-
       <Routes>
-        <Route path='*' element={<Home />}></Route>
-        <Route path='/GameForm' element={<GameForm />}></Route>
-        <Route path='/Home' element={<Home />}></Route>
-        <Route
-          path="*"
-          element={<Home adicionarAoCarrinho={adicionarAoCarrinho} />}
-        />
+        <Route path='*' element={<Home adicionarAoCarrinho={adicionarAoCarrinho} />} />
+        <Route path='/GameForm' element={<GameForm />} />
+        <Route path='/carrinho' element={<Carrinho cartItems={cartItems} cartTotal={cartTotal} />} />
       </Routes>
-
     </div>
   );
 }

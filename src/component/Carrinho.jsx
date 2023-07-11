@@ -1,9 +1,8 @@
-
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-
 
 const Carrinho = ({ cartItems, cartTotal }) => {
+  const total = typeof cartTotal === 'number' ? cartTotal.toFixed(2) : '0.00';
+
   return (
     <div>
       <h2>Carrinho de Compras</h2>
@@ -11,10 +10,10 @@ const Carrinho = ({ cartItems, cartTotal }) => {
         <div>
           <ul>
             {cartItems.map((item) => (
-              <li key={item.game_id}>{item.nome}</li>
+              <li key={item.jogo.game_id}>{item.jogo.nome}</li>
             ))}
           </ul>
-          <p>Valor Total: R${cartTotal.toFixed(2)}</p>
+          <p>Valor Total: R${total}</p>
         </div>
       ) : (
         <p>O carrinho está vazio.</p>
