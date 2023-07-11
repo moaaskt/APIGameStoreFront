@@ -3,6 +3,10 @@ import { Routes, Route } from 'react-router-dom';
 import GameForm from './component/GameForm';
 import Home from './component/Home';
 import Carrinho from './component/Carrinho';
+import Login from './component/Login';
+import CadastroUsuario from './component/CadastrarUser';
+
+
 
 function App() {
   const [games, setGames] = useState([]);
@@ -68,6 +72,8 @@ function App() {
           path="/carrinho"
           element={<Carrinho cartItems={cartItems} cartTotal={cartTotal} removerDoCarrinho={removerDoCarrinho} />}
         />
+        <Route path="/login" element={<Login />} />
+        <Route path="/CadastrarUser" element={<CadastroUsuario />} />
       </Routes>
     </div>
   );

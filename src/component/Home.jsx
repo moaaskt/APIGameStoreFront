@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Carrinho from './Carrinho';
+import Login from './Login'; 
 
 const Home = ({ adicionarAoCarrinho }) => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Home = ({ adicionarAoCarrinho }) => {
       url_jogo: '',
     });
   };
-
+ 
   const comprarJogo = (gameId) => {
     const jogoComprado = games.find((game) => game.game_id === gameId);
 
@@ -56,7 +57,7 @@ const Home = ({ adicionarAoCarrinho }) => {
       console.log(`Jogo ${jogoComprado.nome} comprado!`);
       alert("Adicionado ao carrinho")
       adicionarAoCarrinho(jogoComprado);
-      navigate('/carrinho');
+      // navigate('/carrinho');
     } else {
       console.log(`Jogo com ID ${gameId} não encontrado.`);
     }
@@ -92,9 +93,15 @@ const Home = ({ adicionarAoCarrinho }) => {
           <button className="cadas-button">Cadastrar Jogos</button>
         </Link>
         <button className="search-button" onClick={handleGoToCarrinho}>
-        <i class="fa-solid fa-cart-shopping"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
         </button>
-        
+        <Link to="/Login">
+          <button className="cadas-button">Sign in</button>
+        </Link>
+        {/* <Link to="/CadastrarUser">
+          Sign up
+        </Link> */}
+       
       </div>
       <div className="product-grid">
         {filteredGames.length > 0 ? (
@@ -106,7 +113,6 @@ const Home = ({ adicionarAoCarrinho }) => {
               <p className="price">Preço: R${game.preco}</p>
               <p className="platform">Plataforma: {game.plataforma}</p>
               <button onClick={() => comprarJogo(game.game_id)}>Comprar</button>
-             
             </div>
           ))
         ) : (
