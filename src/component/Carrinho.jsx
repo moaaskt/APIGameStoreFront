@@ -14,11 +14,16 @@ const Carrinho = ({ cartItems, cartTotal }) => {
       <h2>Carrinho de Compras</h2>
       {cartItems.length > 0 ? (
         <div>
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.jogo.game_id}>{item.jogo.nome}</li>
-            ))}
-          </ul>
+          {cartItems.map((item) => (
+            <div key={item.jogo.game_id}>
+              <img src={item.jogo.url_jogo} alt={item.jogo.nome} />
+              <h3>{item.jogo.nome}</h3>
+              <p>Plataforma: {item.jogo.plataforma}</p>
+              <p>Preço: R${item.jogo.preco}</p>
+              <p>Quantidade: {item.quantidade}</p>
+              <hr />
+            </div>
+          ))}
           <p>Valor Total: R${calcularTotal()}</p>
         </div>
       ) : (
@@ -27,5 +32,6 @@ const Carrinho = ({ cartItems, cartTotal }) => {
     </div>
   );
 };
+
 
 export default Carrinho;
