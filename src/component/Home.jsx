@@ -54,6 +54,7 @@ const Home = ({ adicionarAoCarrinho }) => {
 
     if (jogoComprado) {
       console.log(`Jogo ${jogoComprado.nome} comprado!`);
+      alert("Adicionado ao carrinho")
       adicionarAoCarrinho(jogoComprado);
       navigate('/carrinho');
     } else {
@@ -61,6 +62,9 @@ const Home = ({ adicionarAoCarrinho }) => {
     }
   };
 
+  const handleGoToCarrinho = () => {
+    navigate('/Carrinho'); // Use a função navigate para navegar para a página inicial
+  };
   const filteredGames = games.filter((game) => {
     const searchTermLower = searchTerm.toLowerCase();
     return (
@@ -87,6 +91,10 @@ const Home = ({ adicionarAoCarrinho }) => {
         <Link to="/GameForm">
           <button className="cadas-button">Cadastrar Jogos</button>
         </Link>
+        <button className="search-button" onClick={handleGoToCarrinho}>
+        <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        
       </div>
       <div className="product-grid">
         {filteredGames.length > 0 ? (
@@ -98,7 +106,7 @@ const Home = ({ adicionarAoCarrinho }) => {
               <p className="price">Preço: R${game.preco}</p>
               <p className="platform">Plataforma: {game.plataforma}</p>
               <button onClick={() => comprarJogo(game.game_id)}>Comprar</button>
-              <Link to="/carrinho">Carrinho</Link>
+             
             </div>
           ))
         ) : (

@@ -25,6 +25,9 @@ function App() {
     });
     setCartTotal((prevTotal) => prevTotal + jogoComprado.preco);
   };
+  const removerDoCarrinho = (gameId) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.jogo.game_id !== gameId));
+  };
 
   useEffect(() => {
     fetchGames();
@@ -61,7 +64,10 @@ function App() {
       <Routes>
         <Route path='*' element={<Home adicionarAoCarrinho={adicionarAoCarrinho} />} />
         <Route path='/GameForm' element={<GameForm />} />
-        <Route path='/carrinho' element={<Carrinho cartItems={cartItems} cartTotal={cartTotal} />} />
+        <Route
+          path="/carrinho"
+          element={<Carrinho cartItems={cartItems} cartTotal={cartTotal} removerDoCarrinho={removerDoCarrinho} />}
+        />
       </Routes>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Carrinho = ({ cartItems, cartTotal }) => {
+const Carrinho = ({ cartItems, cartTotal, removerDoCarrinho }) => {
   const calcularTotal = () => {
     let total = 0;
     cartItems.forEach((item) => {
@@ -9,9 +9,15 @@ const Carrinho = ({ cartItems, cartTotal }) => {
     return total.toFixed(2);
   };
 
+  const handleGoToHome = () => {
+    navigate('/home'); // Use a função navigate para navegar para a página inicial
+  };
+
   return (
     <div>
+      
       <h2>Carrinho de Compras</h2>
+    
       {cartItems.length > 0 ? (
         <div>
           {cartItems.map((item) => (
@@ -21,6 +27,7 @@ const Carrinho = ({ cartItems, cartTotal }) => {
               <p>Plataforma: {item.jogo.plataforma}</p>
               <p>Preço: R${item.jogo.preco}</p>
               <p>Quantidade: {item.quantidade}</p>
+              <button onClick={() => removerDoCarrinho(item.jogo.game_id)}>Remover</button>
               <hr />
             </div>
           ))}
@@ -28,10 +35,11 @@ const Carrinho = ({ cartItems, cartTotal }) => {
         </div>
       ) : (
         <p>O carrinho está vazio.</p>
+        
       )}
     </div>
+    
   );
 };
-
 
 export default Carrinho;
