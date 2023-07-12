@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CadastrarUser from './CadastrarUser'; 
+import './Login.css'
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -24,7 +25,9 @@ const Login = () => {
           <label>Senha:</label>
           <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit">Entrar</button> <Link to="/Home">
+            <button className="cadas-button">Home</button>
+          </Link>
       </form>
       <p>Ainda não tem uma conta? <Link to="/CadastrarUser">Cadastrar</Link></p>
     </div>

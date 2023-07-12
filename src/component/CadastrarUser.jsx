@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './CadastrarUser.css'
 
 const CadastrarUser = () => {
   const navigate = useNavigate();
@@ -64,9 +65,13 @@ const CadastrarUser = () => {
           <label>Senha:</label>
           <input type="password" value={senha} onChange={(event) => setSenha(event.target.value)} />
         </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar</button> <br/> <Link to="/Home">
+            <button className="cadas-button">Home</button>
+          </Link>
       </form>
       <p>Já possui uma conta? <Link to="/login">Faça login</Link></p>
+
+     
     </div>
   );
 };
