@@ -2,12 +2,24 @@
     padding: 0;
     margin: 0;
   }
-  
+  .mail{
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .passWord{
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .crieConta{
+    color: #fff;
+  }
   .login {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
+    background-color: black;
   }
   
   h2 {
@@ -67,6 +79,6 @@
   }
   
   body {
-    background-color: rgb(223, 218, 218);
+    background-color:black;
   }
   

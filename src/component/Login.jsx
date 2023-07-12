@@ -9,6 +9,7 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
+    
     alert('login efetuado com sucesso')
     window.location.href = '/dashboard';
   };
@@ -18,18 +19,18 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <label className='mail'>Email:</label>
+          <input placeholder='example@email.com' type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div>
-          <label>Senha:</label>
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <label className='passWord'>Senha:</label>
+          <input type="password" placeholder='Digite sua senha' value={password} onChange={(event) => setPassword(event.target.value)} />
         </div>
-        <button type="submit">Entrar</button> <Link to="/Home">
+        <button type="submit">Entrar</button> <p><Link to="/Home">
             <button className="cadas-button">Home</button>
-          </Link>
+          </Link></p> 
       </form>
-      <p>Ainda não tem uma conta? <Link to="/CadastrarUser">Cadastrar</Link></p>
+      <p className='crieConta'>Ainda não tem uma conta? <Link to="/CadastrarUser">Cadastrar</Link></p>
     </div>
   );
 };
