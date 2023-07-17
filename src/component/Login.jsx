@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CadastrarUser from './CadastrarUser'; 
+import './Login.css'
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -9,51 +10,28 @@ const Login = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     
-    try {
-      const response = await fetch('https://apigamestore.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          senha: senha,
-        }),
-      });
-
-      if (response.ok) {
-        // Autenticação bem-sucedida
-        alert('Login efetuado com sucesso!');
-        window.location.href = '/dashboard';
-      } else {
-        // Autenticação falhou
-        const errorData = await response.json();
-        const errorMessage = errorData.erro;
-        alert('Falha no login: ' + errorMessage);
-      }
-    } catch (error) {
-      // Trate erros de rede ou outras exceções
-      console.error('Erro de rede:', error);
-      alert('Erro de rede ao fazer login. Por favor, tente novamente.');
-    }
+    alert('login efetuado com sucesso')
+    window.location.href = '/dashboard';
   };
 
 
   return (
-    <div>
+    <div className='login'>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <label className='mail'>Email:</label>
+          <input placeholder='example@email.com' type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div>
-          <label>Senha:</label>
-          <input type="password" value={senha} onChange={(event) => setSenha(event.target.value)} />
+          <label className='passWord'>Senha:</label>
+          <input type="password" placeholder='Digite sua senha' value={password} onChange={(event) => setPassword(event.target.value)} />
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit">Entrar</button> <p><Link to="/Home">
+            <button className="cadas-button">Home</button>
+          </Link></p> 
       </form>
-      <p>Ainda não tem uma conta? <Link to="/CadastrarUser">Cadastrar</Link></p>
+      <p className='crieConta'>Ainda não tem uma conta? <Link to="/CadastrarUser">Cadastrar</Link></p>
     </div>
   );
 };

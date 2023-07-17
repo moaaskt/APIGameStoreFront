@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './CadastrarUser.css'
 
 const CadastrarUser = () => {
   const navigate = useNavigate();
@@ -45,16 +46,16 @@ const CadastrarUser = () => {
   };
 
   return (
-    <div>
+    <div className='cadastra-user'>
       <h2>Cadastro de Usuário</h2>
       <form onSubmit={handleCadastro}>
         <div>
           <label>Nome:</label>
-          <input type="text" value={nome} onChange={(event) => setNome(event.target.value)} />
+          <input placeholder='Digite seu nome completo' type="text" value={nome} onChange={(event) => setNome(event.target.value)} />
         </div>
         <div>
           <label>CPF:</label>
-          <input type="text" value={cpf} onChange={(event) => setCpf(event.target.value)} />
+          <input  type="text" value={cpf} onChange={(event) => setCpf(event.target.value)} />
         </div>
         <div>
           <label>Email:</label>
@@ -62,11 +63,15 @@ const CadastrarUser = () => {
         </div>
         <div>
           <label>Senha:</label>
-          <input type="password" value={senha} onChange={(event) => setSenha(event.target.value)} />
+          <input placeholder='Senha de até 6 digitos*' type="password" value={senha} onChange={(event) => setSenha(event.target.value)} />
         </div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar</button> <br/> <Link to="/Home">
+            <button className="cadas-button">Home</button>
+          </Link>
       </form>
       <p>Já possui uma conta? <Link to="/login">Faça login</Link></p>
+
+     
     </div>
   );
 };
