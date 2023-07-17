@@ -20,7 +20,7 @@ const CadastrarUser = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/cadastrarUsers', {
+      const response = await fetch('https://apigamestore.onrender.com/cadastrarUsers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -4,13 +4,40 @@ import CadastrarUser from './CadastrarUser';
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [senha, setSenha] = useState('');
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    alert('login efetuado com sucesso')
-    window.location.href = '/dashboard';
+    
+    try {
+      const response = await fetch('https://apigamestore.onrender.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          senha: senha,
+        }),
+      });
+
+      if (response.ok) {
+        // Autenticação bem-sucedida
+        alert('Login efetuado com sucesso!');
+        window.location.href = '/dashboard';
+      } else {
+        // Autenticação falhou
+        const errorData = await response.json();
+        const errorMessage = errorData.erro;
+        alert('Falha no login: ' + errorMessage);
+      }
+    } catch (error) {
+      // Trate erros de rede ou outras exceções
+      console.error('Erro de rede:', error);
+      alert('Erro de rede ao fazer login. Por favor, tente novamente.');
+    }
   };
+
 
   return (
     <div>
@@ -22,7 +49,7 @@ const Login = () => {
         </div>
         <div>
           <label>Senha:</label>
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <input type="password" value={senha} onChange={(event) => setSenha(event.target.value)} />
         </div>
         <button type="submit">Entrar</button>
       </form>

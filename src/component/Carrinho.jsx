@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+
+
 
 const Carrinho = ({ cartItems, cartTotal, removerDoCarrinho }) => {
   const calcularTotal = () => {
@@ -10,13 +14,14 @@ const Carrinho = ({ cartItems, cartTotal, removerDoCarrinho }) => {
   };
 
   const handleGoToHome = () => {
+    const navigate = useNavigate();
     navigate('/home'); // Use a função navigate para navegar para a página inicial
   };
 
   return (
     <div>
-      
-      <h2>Carrinho de Compras</h2>
+    
+      <h2>Carrinho de Compras</h2>  
     
       {cartItems.length > 0 ? (
         <div>
@@ -29,9 +34,15 @@ const Carrinho = ({ cartItems, cartTotal, removerDoCarrinho }) => {
               <p>Quantidade: {item.quantidade}</p>
               <button onClick={() => removerDoCarrinho(item.jogo.game_id)}>Remover</button>
               <hr />
+              
             </div>
+            
+            
           ))}
-          <p>Valor Total: R${calcularTotal()}</p>
+          
+          <p>Valor Total: R${calcularTotal()}</p>   <Link to="/home">
+          <button className="cadas-button">Voltar</button>
+        </Link>
         </div>
       ) : (
         <p>O carrinho está vazio.</p>

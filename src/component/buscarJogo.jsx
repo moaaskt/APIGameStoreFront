@@ -15,7 +15,7 @@ const GameForm = () => {
   }, []);
   const fetchGames = async () => {
     try {
-      const response = await fetch('http://localhost:3000/games');
+      const response = await fetch('https://apigamestore.onrender.com/games');
       const data = await response.json();
       setGames(data.Dados);
     } catch (error) {

@@ -30,7 +30,7 @@ const GameForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/cadastrarGames', {
+      const response = await fetch('https://apigamestore.onrender.com/cadastrarGames', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
