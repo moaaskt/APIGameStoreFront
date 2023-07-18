@@ -24,9 +24,9 @@ const Login = () => {
           <input placeholder='example@email.com' type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div>
-          <label className='passWord'>Senha:</label>
-          <input type="password" placeholder='Digite sua senha' value={password} onChange={(event) => setPassword(event.target.value)} />
-        </div>
+  <label className='passWord'>Senha:</label>
+  <input type="password" placeholder='Digite sua senha' value={senha} onChange={(event) => setSenha(event.target.value)} />
+</div>
         <button type="submit">Entrar</button> <p><Link to="/Home">
             <button className="cadas-button">Home</button>
           </Link></p> 

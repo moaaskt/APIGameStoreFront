@@ -107,7 +107,7 @@ body{
   background-color: #eb0505c5;
 }
 .search-input {
-  padding: 10px;
+  padding: 1px;
   font-size: 16px;
   border: 1px solid #4c8bf5;
   border-radius: 4px;
@@ -158,47 +158,86 @@ body {
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  background-color: #333;
+  color: #fff;
   padding: 10px;
 }
 
-.right {
+.navbar-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-weight: bold;
-  color: #fff;
+  font-size: 24px;
 }
 
-.search-bar {
-  width: 33rem;
-  height: 26px;
-  border-radius: 5px;
-  border: none;
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.carrinho {
-  margin: 0rem 2.5rem 0 2.5rem;
+.nav-links li {
+  margin-left: 10px;
+}
+
+.carrinho,
+.fa-plus,
+.fa-user {
   color: #fff;
-  width: 50px;
-  height: 26px;
-  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   background-color: #c70505;
   border: none;
   cursor: pointer;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.3s;
 }
 
-.carrinho:hover{
+.carrinho:hover,
+.fa-plus:hover,
+.fa-user:hover {
   background-color: #eb0505c5;
 }
 
-.carrinho-de-compra, .login, .cadastra-user {
-  background: #dfdada;
+/* Media Query para dispositivos móveis */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .search-bar {
+    width: 150px;
+  }
+
+  .navbar-container {
+    justify-content: space-between;
+  }
+
+  .menu-icon {
+    display: block;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .menu-icon:hover {
+    color: #ccc;
+  }
+
+  .active {
+    display: flex;
+  }
 }
+
 
 .cart {
   color: #fff;

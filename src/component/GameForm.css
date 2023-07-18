@@ -1,58 +1,65 @@
 .game-form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-  }
-  
-  .game-form-container h1 {
-    margin-bottom: 20px;
-  }
-  
-  .game-form-container form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .game-form-container form input[type='text'],
-  .game-form-container form input[type='number'] {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .game-form-container form button[type='submit'] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .game-form-container form button[type='submit']:hover {
-    background-color: #0056b3;
-  }
-  h1 {
-    font-family: 'Nome da Fonte', sans-serif;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    color: rgb(10, 3, 3);
-  }
-  .home-button {
-    background-color: #c70505;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 13px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .home-button:hover {
-    background-color: #eb0505c5;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  background-color: black;
+  color: #ccc;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 11px;
+}
+
+.game-submit-button,
+.cadas-button-form {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+ 
+}
+
+.game-submit-button {
+  background-color: #007bff;
+}
+
+.cadas-button-form {
+  background-color: #e21111;
+}
+
+.cadas-button-form i {
+  margin-right: 5px;
+}
+.input-preco {
+  width: 200px; /* Ajuste o valor conforme necessário */
+}

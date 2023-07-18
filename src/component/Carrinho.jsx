@@ -46,9 +46,7 @@ const Carrinho = ({ cartItems, cartTotal, removerDoCarrinho }) => {
             
           ))}
           
-          <p>Valor Total: R${calcularTotal()}</p>   <Link to="/home">
-          <button className="cadas-button">Voltar</button>
-        </Link>
+          <p>Valor Total: R${calcularTotal()}</p>  
         </div>
       ) : (
         <p>O carrinho está vazio.</p>

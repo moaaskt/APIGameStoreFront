@@ -60,66 +60,85 @@ const GameForm = () => {
 
   return (
 
-    <div className="game-form-container">
-
-      <h1>Cadastro de Games</h1>
-      <form onSubmit={handleFormSubmit}>
+    <div class="game-form-container">
+    <h2>Cadastro de Games</h2>
+    <form onSubmit={handleFormSubmit}>
+      <div class="input-container">
         <label>
           Nome:
           <input
+          placeholder='Nome do jogo'
             type="text"
             name="nome"
             value={gameData.nome}
             onChange={handleInputChange}
           />
         </label>
-        <br />
+      </div>
+  
+      <div class="input-container">
         <label>
           Descrição:
           <input
+          placeholder='Digite aqui as descriçoes do jogo'
             type="text"
             name="descricao"
             value={gameData.descricao}
             onChange={handleInputChange}
           />
         </label>
-        <br />
+      </div>
+  
+      <div class="input-container">
         <label>
           Preço:
           <input
+          placeholder='R$'
+            className='input-preco'
             type="number"
             name="preco"
             value={gameData.preco}
             onChange={handleInputChange}
           />
         </label>
-        <br />
+      </div>
+  
+      <div class="input-container">
         <label>
           Plataforma:
           <input
+          placeholder='PC,PSP,PS5,XBOX..'
             type="text"
             name="plataforma"
             value={gameData.plataforma}
             onChange={handleInputChange}
           />
         </label>
-        <br />
+      </div>
+  
+      <div class="input-container">
         <label>
           URL do Jogo:
           <input
+          placeholder='URL imagem da Capa'
             type="text"
-            name="url_jogo" // Corrigido o nome do campo
+            name="url_jogo"
             value={gameData.url_jogo}
             onChange={handleInputChange}
           />
         </label>
-        <br />
-        <button type="submit">Cadastrar Jogo</button>
-        <button className="cadas-button" onClick={handleGoToHome}>
-        <i class="fa-sharp fa-solid fa-arrow-left"></i>
+      </div>
+  
+      <div class="button-container">
+        <button type="submit" class="game-submit-button">Cadastrar</button>
+        <button class="cadas-button-form" onClick={handleGoToHome}>
+          <i class="fa-sharp fa-solid fa-arrow-left"></i> 
         </button>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
+  
+  
 
   );
 };

@@ -77,22 +77,39 @@ const Home = ({ adicionarAoCarrinho }) => {
 
   return (
     <div className="home-container">
-      <nav className="navbar">
-      <h1>GameStore©</h1>
+<nav className="navbar">
+  <div className="navbar-container">
+    <h1 className="logo">GameStore©</h1>
+    <ul className="nav-links">
+      <li>
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Pesquise algum jogo..."
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </li>
+      <li>
+        <button className="carrinho" onClick={handleGoToCarrinho}>
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+      </li>
+      <li>
         <Link to="/GameForm">
-            <button className="cadas-button">Cadastrar Jogos</button>
-          </Link>
-        <div className='right'>
-          <input type='text' className="search-bar" placeholder='Pesquise algun jogo...' value={searchTerm}
-            onChange={(event) => setSearchTerm(event.target.value)}/>
-          <button className="carrinho" onClick={handleGoToCarrinho}>
-            <i class="fa-solid fa-cart-shopping"></i>
-          </button>
-          <Link to="/Login">
-            <button className="cart">Login</button>
-          </Link>
-        </div>
-      </nav>
+          <i class="fa-solid fa-plus"></i>
+        </Link>
+      </li>
+      <li>
+        <Link to="/Login">
+          <i class="fa-solid fa-user"></i>
+        </Link>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
       <div className="product-grid">
         {filteredGames.length > 0 ? (
           filteredGames.map((game) => (
