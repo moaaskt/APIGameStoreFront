@@ -15,8 +15,8 @@ APIGameStoreFront é uma API para uma loja de jogos online. Ele permite que os c
 ## Tecnologias Utilizadas
 
 - JavaScript
-- React (ou outro framework utilizado para a construção da aplicação frontend)
-- (Adicione outras tecnologias utilizadas no projeto)
+- React 
+- vite
 
 ## Pré-requisitos
 
